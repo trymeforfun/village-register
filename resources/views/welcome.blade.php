@@ -1,5 +1,6 @@
 @include('layouts.client.header')
 
+
 <body>
     <div class="container">
         <div class="text-center">

@@ -1,5 +1,5 @@
 @include('layouts.client.header')
-
+@include('layouts.client.navbar')
 
 <body class="bg-blue-400">
     <div class="container">
@@ -16,120 +16,128 @@
                     + Daftar Anggota Keluarga
                 </button>
 
-                <div id="default-modal" aria-hidden="true"
-                    class="fixed left-0 right-0 z-50 items-center justify-center hidden h-modal md:h-full top-4 md:inset-0"
-                    style="overflow-y: auto !important">
-                    <div class="relative w-full h-full max-w-2xl px-4 md:h-auto">
-                        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                            <div class="flex items-start justify-between p-5 border-b rounded-t dark:border-gray-600 ">
-                                <h3 class="text-xl font-semibold text-gray-900 lg:text-2xl dark:text-white">
-                                    Tambah daftar anggota keluarga
-                                </h3>
-                                <button type="button"
-                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                    data-modal-toggle="default-modal">
-                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                </button>
-                            </div>
-
-
-
-                            <div class="p-4 space-y-6" id="parent_data_keluarga" style="margin-top: -3em">
-                                <button onclick="addChildRow()"
-                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">tambah
-                                    data</button>
-                                <div class="row">
-                                    <!-- Daftar nama anggota keluarga -->
-                                    <div class="col-12 mb-4">
-                                        <div class="row mb-2">
-                                            <div class="col-12 mb-1">
-                                                <div class="form-floating">
-                                                    <input required type="text" id="rw" placeholder="masukkan nik"
-                                                        class="form-control rounded">
-                                                    <label for="rw">Nama</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 mb-1">
-                                                <div class="form-floating">
-                                                    <input required type="text" id="rw"
-                                                        placeholder="Tangerang, 19-08-1997"
-                                                        class="form-control rounded">
-                                                    <label for="rw">Tempat Lahir</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 mb-1">
-                                                <div class="form-floating">
-                                                    <input required type="date" id="rw"
-                                                        placeholder="Tangerang, 19-08-1997"
-                                                        class="form-control rounded">
-                                                    <label for="rw">Tanggal Lahir</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 mb-2">
-                                                <div class="form-floating">
-                                                    <input required type="text" id="rw" placeholder="masukkan nik"
-                                                        class="form-control rounded">
-                                                    <label for="rw">Pekerjaan</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Daftar nama anggota keluarga -->
-                                </div>
-                            </div>
-
-                            <div
-                                class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                                <button data-modal-toggle="default-modal" type="button"
-                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                    accept</button>
-                                <button data-modal-toggle="default-modal" type="button"
-                                    class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600">Decline</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="bg-white overflow-hidden rounded-md shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
-                        <form action="" method="post">
+                        <form action="{{ url('kk') }}" method="post" enctype="multipart/form-data">
                             @csrf
+                            <input type="hidden" name="layanan" value="kk">
+                            <!-- ANGGOTA KELUARGA -->
+                            <div id="default-modal" aria-hidden="true"
+                                class="fixed left-0 right-0 z-50 items-center justify-center hidden h-modal md:h-full top-4 md:inset-0"
+                                style="overflow-y: auto !important">
+                                <div class="relative w-full h-full max-w-2xl px-4 md:h-auto">
+                                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                        <div
+                                            class="flex items-start justify-between p-5 border-b rounded-t dark:border-gray-600 ">
+                                            <h3 class="text-xl font-semibold text-gray-900 lg:text-2xl dark:text-white">
+                                                Tambah daftar anggota keluarga
+                                            </h3>
+                                            <button type="button"
+                                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                                data-modal-toggle="default-modal">
+                                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd"
+                                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+
+
+
+                                        <div class="p-4 space-y-6" id="parent_data_keluarga" style="margin-top: -3em">
+                                            <button onclick="addChildRow()"
+                                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">tambah
+                                                data</button>
+                                            <div class="row">
+                                                <!-- Daftar nama anggota keluarga -->
+                                                <div class="col-12 mb-4">
+                                                    <div class="row mb-2">
+                                                        <div class="col-12 mb-1">
+                                                            <div class="form-floating">
+                                                                <input required type="text" id=""
+                                                                    placeholder="masukkan nik" name="nama_anggota_keluarga[]"
+                                                                    class="form-control rounded">
+                                                                <label for="">Nama</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 mb-1">
+                                                            <div class="form-floating">
+                                                                <input required type="text" id=""
+                                                                    placeholder="Tangerang, 19-08-1997"
+                                                                    name="tempat_lahir_anggota_keluarga[]"
+                                                                    class="form-control rounded">
+                                                                <label for="">Tempat Lahir</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 mb-1">
+                                                            <div class="form-floating">
+                                                                <input required type="date" id=""
+                                                                    placeholder="Tangerang, 19-08-1997"
+                                                                    class="form-control rounded" name="tanggal_lahir_anggota_keluarga[]">
+                                                                <label for="">Tanggal Lahir</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 mb-2">
+                                                            <div class="form-floating">
+                                                                <input required type="text" id=""
+                                                                    placeholder="masukkan nik"
+                                                                    class="form-control rounded" name="pekerjaan_anggota_keluarga[]">
+                                                                <label for="">Pekerjaan</label> 
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Daftar nama anggota keluarga -->
+                                            </div>
+                                        </div>
+
+                                        <div
+                                            class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                                            <button data-modal-toggle="default-modal" type="button"
+                                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                                accept</button>
+                                            <button data-modal-toggle="default-modal" type="button"
+                                                class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600">Decline</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ANGGOTA KELUARGA -->
+
                             <div class="row d-flex">
                                 <div class="col-12 col-md-4 mb-2">
                                     <div class="form-floating">
-                                        <input required type="text" id="name" placeholder="masukkan kterangan"
+                                        <input required type="text" name="nama" id="name" placeholder="masukkan kterangan"
                                             class="form-control rounded">
                                         <label for="name">Nama Lengkap Pemohon</label>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-4 mb-2 justify-content-center">
                                     <div class="form-floating">
-                                        <input required type="text" id="nama_kepala_keluarga"
+                                        <input required type="text" name="nama_kepala_keluarga" id="nama_kepala_keluarga"
                                             placeholder="masukkan kterangan" class="form-control rounded">
                                         <label for="nama_kepala_keluarga">Nama Kepala Keluarga</label>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-4 mb-2" id="nik_selector">
                                     <div class="form-floating">
-                                        <input required type="text" id="nik" placeholder="masukkan nik"
+                                        <input required type="text" name="nik" id="nik" placeholder="masukkan nik"
                                             class="form-control rounded">
                                         <label for="nik">NIK</label>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-4 mb-2 justify-content-center">
                                     <div class="form-floating">
-                                        <input required type="text" id="no_kk" placeholder="masukkan nama"
+                                        <input required type="text" name="no_kk_lama" id="no_kk" placeholder="masukkan nama"
                                             class="form-control rounded">
                                         <label for="no_kk">No KK Sebelumnya</label>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-4 mb-2">
                                     <div class="form-floating">
-                                        <textarea required name="address" id="address" class="w-full rounded" rows="3"
+                                        <textarea required name="address" name="alamat" id="address" class="w-full rounded" rows="3"
                                             placeholder="Alamat lengkap"></textarea>
                                     </div>
                                 </div>
@@ -138,14 +146,14 @@
                                         <div class="col-6">
                                             <div class="form-floating">
                                                 <input required type="text" id="rt" placeholder="masukkan nik"
-                                                    class="form-control rounded">
+                                                    class="form-control rounded" name="rt">
                                                 <label for="rt"> RT</label>
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-floating">
                                                 <input required type="text" id="rw" placeholder="masukkan nik"
-                                                    class="form-control rounded">
+                                                    class="form-control rounded" name="rw">
                                                 <label for="rw"> RW</label>
                                             </div>
                                         </div>
@@ -153,28 +161,28 @@
                                 </div>
                                 <div class="col-12 col-md-4 mb-2">
                                     <div class="">
-                                        <input required type="file" id="poto" placeholder="upload poto"
+                                        <input required type="file" id="poto" name="poto" placeholder="upload poto"
                                             class="form-control rounded">
                                         <label for="poto">upload poto anda</label>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-4 mb-2">
                                     <div class="">
-                                        <input required type="file" id="ttd" placeholder="upload ttd"
+                                        <input required type="file" id="ttd" name="ttd" placeholder="upload ttd"
                                             class="form-control rounded">
                                         <label for="ttd">upload ttd anda</label>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-4 mb-2">
                                     <div class="">
-                                        <input required type="file" id="kk upload" placeholder="upload kk"
+                                        <input required type="file" id="kk upload" name="kk_img" placeholder="upload kk"
                                             class="form-control rounded">
                                         <label for="kk upload">upload Kartu Keluarga</label>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-4 mb-2">
                                     <div class="">
-                                        <input required type="file" id="poto" placeholder="upload poto"
+                                        <input required type="file" id="poto" name="pengantar_rt_img" placeholder="upload poto"
                                             class="form-control rounded">
                                         <label for="poto">upload surat pengantar RT</label>
                                     </div>
@@ -202,7 +210,7 @@
                             <div class="row mb-2">
                                 <div class="col-12 mb-1">
                                     <div class="form-floating">
-                                        <input required type="text" id="rw" placeholder="masukkan nik"
+                                        <input required type="text" name="nama_anggota_keluarga[]" id="rw" placeholder="masukkan "
                                             class="form-control rounded">
                                         <label for="rw">Nama</label>
                                     </div>
@@ -211,7 +219,7 @@
                                     <div class="form-floating">
                                         <input required type="text" id="rw"
                                             placeholder="Tangerang, 19-08-1997"
-                                            class="form-control rounded">
+                                            class="form-control rounded" name="tempat_lahir_anggota_keluarga[]">
                                         <label for="rw">Tempat Lahir</label>
                                     </div>
                                 </div>
@@ -219,14 +227,14 @@
                                     <div class="form-floating">
                                         <input required type="date" id="rw"
                                             placeholder="Tangerang, 19-08-1997"
-                                            class="form-control rounded">
+                                            class="form-control rounded" name="tanggal_lahir_anggota_keluarga[]">
                                         <label for="rw">Tanggal Lahir</label>
                                     </div>
                                 </div>
                                 <div class="col-12 mb-2">
                                     <div class="form-floating">
                                         <input required type="text" id="rw" placeholder="masukkan nik"
-                                            class="form-control rounded">
+                                            class="form-control rounded" nama="pekerjaan_anggota_keluarga[]">
                                         <label for="rw">Pekerjaan</label>
                                     </div>
                                 </div>
