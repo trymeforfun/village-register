@@ -99,12 +99,12 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-4 m-2">
-                                    <input required type="file" id="poto" name="ktp_mayit" placeholder="upload poto"
+                                    <input required type="file" id="poto" name="ktp_mayat" placeholder="upload poto"
                                         class="form-control rounded">
                                     <label for="poto">upload KTP mayit</label>
                                 </div>
                                 <div class="col-12 col-md-4 m-2">
-                                    <input required type="file" id="kk upload" name="kk_mayit" placeholder="upload kk"
+                                    <input required type="file" id="kk upload" name="kk_mayat" placeholder="upload kk"
                                         class="form-control rounded">
                                     <label for="kk upload">upload Kartu Keluarga mayit</label>
                                 </div>
