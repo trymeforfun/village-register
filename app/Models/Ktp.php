@@ -12,10 +12,5 @@ class Ktp extends Model
     public $table = 'ktp';
 
     protected $guarded = ['id'];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 }
 

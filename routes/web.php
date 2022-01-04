@@ -20,7 +20,7 @@ Route::get('/', function () {
 })->middleware(['auth'])->name('welcome');
 
 Route::get('/dashboard', function () {
-    $users = User::with(['ktp'])->whereHas('roles', function ($query)
+    $users = User::with(['services'])->whereHas('roles', function ($query)
     {
         $query->where('name', 'user');
     })->get();
