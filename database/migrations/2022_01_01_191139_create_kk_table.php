@@ -16,6 +16,7 @@ class CreateKkTable extends Migration
         Schema::create('kk', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->string('layanan')->nullable();
             $table->string('nama')->nullable();
             $table->string('nama_kepala_keluarga')->nullable();
             $table->string('no_kk_lama')->nullable();

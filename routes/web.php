@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MainController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,30 +17,37 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware(['auth'])->name('welcome');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $users = User::with(['ktp'])->whereHas('roles', function ($query)
+    {
+        $query->where('name', 'user');
+    })->get();
+    return view('dashboard', compact('users'));
 })->middleware(['auth'])->name('dashboard');
 
 # return view in every single client form
-Route::view('/ktp', 'client.ktp');
-Route::view('/kk', 'client.kk');
-Route::view('/surat-keterangan-usaha', 'client.surat-keterangan-usaha');
-Route::view('/surat-domisili', 'client.surat-domisili');
-Route::view('/surat-pindah', 'client.surat-pindah');
-Route::view('/surat-kematian', 'client.surat-kematian');
-Route::view('/surat-nikah', 'client.surat-nikah');
-Route::view('/surat-keterangan-tidak-mampu', 'client.surat-keterangan-tidak-mampu');
-Route::view('/surat-ahli-waris', 'client.surat-ahli-waris');
+Route::group(['middleware' => 'auth'], function () {
+    Route::view('/ktp', 'client.ktp');
+    Route::view('/kk', 'client.kk');
+    Route::view('/surat-keterangan-usaha', 'client.surat-keterangan-usaha');
+    Route::view('/surat-domisili', 'client.surat-domisili');
+    Route::view('/surat-pindah', 'client.surat-pindah');
+    Route::view('/surat-kematian', 'client.surat-kematian');
+    Route::view('/surat-nikah', 'client.surat-nikah');
+    Route::view('/surat-keterangan-tidak-mampu', 'client.surat-keterangan-tidak-mampu');
+    Route::view('/surat-ahli-waris', 'client.surat-ahli-waris');
+    
+    # Store data to database
+    Route::post('/ktp', [MainController::class, 'storeKtp']);
+    Route::post('/kk', [MainController::class, 'storeKk']);
+    Route::post('/surat-domisili', [MainController::class, 'storeSuratDomisili']);
+    Route::post('/surat-keterangan-usaha', [MainController::class, 'storeSuratIzinUsaha']);
+    Route::post('/surat-pindah', [MainController::class, 'storeSuratPindah']);
+    Route::post('/surat-keterangan-tidak-mampu', [MainController::class, 'storeSuratKeteranganTidakMampu']);
+    Route::post('/surat-kematian', [MainController::class, 'storeSuratKematian']);
+});
 
-# Store data to database
-Route::post('/ktp', [MainController::class, 'storeKtp']);
-Route::post('/kk', [MainController::class, 'storeKk']);
-Route::post('/surat-domisili', [MainController::class, 'storeSuratDomisili']);
-Route::post('/surat-keterangan-usaha', [MainController::class, 'storeSuratIzinUsaha']);
-Route::post('/surat-pindah', [MainController::class, 'storeSuratPindah']);
-Route::post('/surat-keterangan-tidak-mampu', [MainController::class, 'storeSuratKeteranganTidakMampu']);
-Route::post('/surat-kematian', [MainController::class, 'storeSuratKematian']);
 
 require __DIR__ . '/auth.php';

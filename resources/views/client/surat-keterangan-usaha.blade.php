@@ -13,6 +13,7 @@
                         <form action="{{ url('surat-keterangan-usaha') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="layanan" value="surat keterangan usaha">
+                            <input type="hidden" name="user_id" value="{{ auth()->user->id }}">
                             <div class="row d-flex">
                                 <div class="col-12 col-md-4 m-2 justify-content-center">
                                     <div class="form-floating">

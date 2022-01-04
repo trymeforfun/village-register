@@ -16,6 +16,7 @@ class CreateSuratKeteranganUsahaTable extends Migration
         Schema::create('surat_keterangan_usaha', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->string('layanan')->nullable();
             $table->string('nama')->nullable();
             $table->string('nik')->nullable();
             $table->string('jenis_usaha')->nullable();

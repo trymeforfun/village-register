@@ -1,6 +1,5 @@
 @include('layouts.client.header')
 @include('layouts.client.navbar')
-
 <body class="bg-blue-400">
     <div class="container">
         <div class="text-center">
@@ -13,6 +12,7 @@
                         <form action="{{ url('ktp') }}" method="post" enctype="multipart/form-data" >
                             @csrf
                             <input type="hidden" name="layanan" value="ktp">
+                            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                             <div class="row d-flex">
                                 <div class="col-12 col-md-4 m-2">
                                     <div class="">

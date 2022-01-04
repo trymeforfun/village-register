@@ -16,6 +16,7 @@ class CreateSuratPindahTable extends Migration
         Schema::create('surat_pindah', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->string('layanan')->nullable();
             $table->string('nama')->nullable();
             $table->string('nama_kepala_keluarga')->nullable();
             $table->string('nik')->nullable();

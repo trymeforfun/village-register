@@ -16,6 +16,7 @@ class CreateSuratKematianTable extends Migration
         Schema::create('surat_kematian', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->string('layanan')->nullable();
             $table->string('nama')->nullable();
             $table->string('nik')->nullable();
             $table->string('tempat_lahir')->nullable();

@@ -13,6 +13,7 @@
                         <form action="{{ url('surat-keterangan-tidak-mampu') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="layanan" value="surat keterangan tidak mampu">
+                            <input type="hidden" name="user_id" value="{{ auth()->user->id }}">
                             <div class="row d-flex">
                                 <div class="col-12 col-md-4 m-2">
                                     <div class="">

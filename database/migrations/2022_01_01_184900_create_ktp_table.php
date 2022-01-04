@@ -16,6 +16,8 @@ class CreateKtpTable extends Migration
         Schema::create('ktp', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+                $table->string('layanan')->nullable();
+                $table->string('alasan')->nullable();
                 $table->string('nama')->nullable();
                 $table->string('nik')->nullable();
                 $table->string('tempat_lahir')->nullable();
