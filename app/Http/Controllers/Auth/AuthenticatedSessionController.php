@@ -34,9 +34,10 @@ class AuthenticatedSessionController extends Controller
 
         if (auth()->user()->roles[0]->name == 'user') {
             return redirect(route('welcome'));
+        } else {
+            return redirect()->intended(RouteServiceProvider::HOME);
         }
 
-        return redirect()->intended(RouteServiceProvider::HOME);
     }
 
     /**

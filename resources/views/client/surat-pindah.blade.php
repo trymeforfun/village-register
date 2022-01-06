@@ -22,7 +22,8 @@
                         <form action="{{ url('surat-pindah') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="layanan" value="surat pindah">
-                            <input type="hidden" name="user_id" value="{{ auth()->user->id }}">
+                            <input type="hidden" name="data_anggota_keluarga">
+                            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                             <!-- Modal -->
                             <div id="default-modal" aria-hidden="true"
                                 class="fixed left-0 right-0 z-50 items-center justify-center hidden h-modal md:h-full top-4 md:inset-0"

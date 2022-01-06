@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="col-12 col-md-4 m-2" id="nik_selector">
                                     <div class="form-floating">
-                                        <input required type="text" id="nik" name="nik" placeholder="masukkan nik"
+                                        <input type="text" id="nik" name="nik" placeholder="masukkan nik"
                                             class="form-control rounded">
                                         <label for="nik">NIK</label>
                                     </div>

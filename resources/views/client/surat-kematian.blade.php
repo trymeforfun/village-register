@@ -13,7 +13,7 @@
                         <form action="{{ url('surat-kematian') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="layanan" value="surat kematian">
-                            <input type="hidden" name="user_id" value="{{ auth()->user->id }}">
+                            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                             <div class="row d-flex">
                                 <div class="col-12 col-md-4 m-2 justify-content-center">
                                     <div class="form-floating">
@@ -100,12 +100,12 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-4 m-2">
-                                    <input required type="file" id="poto" name="ktp_mayat" placeholder="upload poto"
+                                    <input required type="file" id="poto" name="ktp_mayat_img" placeholder="upload poto"
                                         class="form-control rounded">
                                     <label for="poto">upload KTP mayit</label>
                                 </div>
                                 <div class="col-12 col-md-4 m-2">
-                                    <input required type="file" id="kk upload" name="kk_mayat" placeholder="upload kk"
+                                    <input required type="file" id="kk upload" name="kk_mayat_img" placeholder="upload kk"
                                         class="form-control rounded">
                                     <label for="kk upload">upload Kartu Keluarga mayit</label>
                                 </div>
