@@ -6,6 +6,7 @@
         <div class="text-center">
             <h1 class="text-4xl md:text-7xl mt-12">Selamat Datang</h1>
             <span>di layanan online kelurahan tanah tinggi</span>
+            <img src="{{ url('img/logo.png') }}" class="mx-auto" alt="" style="width: 6rem">
         </div>
         <div class="py-12">
             @if ($message = Session::get('success'))

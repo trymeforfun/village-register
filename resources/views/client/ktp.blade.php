@@ -1,13 +1,13 @@
 @include('layouts.client.header')
 @include('layouts.client.navbar')
-<body class="bg-blue-400">
+<body class="bg-blue-400" style="background-image: url('img/img2.jpeg')">
     <div class="container">
         <div class="text-center">
-            <h1 class="text-3xl md:text-5xl mt-12 text-white">Masukkan Data Anda</h1>
+            <h1 class="text-3xl md:text-5xl mt-12 text-white ">Masukkan Data Anda</h1>
         </div>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden rounded-md shadow-sm sm:rounded-lg">
+                <div class="bg-white opacity-90 overflow-hidden rounded-md shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
                         <form action="{{ url('ktp') }}" method="post" enctype="multipart/form-data" >
                             @csrf
