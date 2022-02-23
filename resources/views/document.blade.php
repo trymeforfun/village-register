@@ -163,11 +163,11 @@
         </span>
         <div class="sign">
             <div class="sign1">
-                <img src="{{ 'data:image/png;base64,' . base64_encode(file_get_contents(public_path('img/sign1.jpeg'))) }}"
-                    alt="">
+                {{-- <img src="{{ 'data:image/png;base64,' . base64_encode(file_get_contents(public_path('img/sign1.jpeg'))) }}"
+                    alt=""> --}}
             </div>
             <div class="sign2">
-                <img src="{{ 'data:image/png;base64,' . base64_encode(file_get_contents(public_path('img/sign2.jpeg'))) }}"
+                <img src="{{ 'data:image/png;base64,' . base64_encode(file_get_contents(public_path('img/ttd pdf.png'))) }}"
                     alt="">
             </div>
         </div>

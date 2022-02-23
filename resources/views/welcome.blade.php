@@ -1,11 +1,11 @@
 @include('layouts.client.header')
 
 
-<body>
+<body style="background-image: url('img/img2.jpeg'); object-fit: cover">
     <div class="container">
         <div class="text-center">
-            <h1 class="text-4xl md:text-7xl mt-12">Selamat Datang</h1>
-            <span>di layanan online kelurahan tanah tinggi</span>
+            <h1 class="text-4xl md:text-7xl mt-12 text-white">Selamat Datang</h1>
+            <h3 class="text-2xl md:text-5xl text-white">di layanan online kelurahan tanah tinggi</h3>
             <img src="{{ url('img/logo.png') }}" class="mx-auto" alt="" style="width: 6rem">
         </div>
         <div class="py-12">
@@ -15,7 +15,7 @@
               </div>
             @endif
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="bg-white overflow-hidden opacity-90 shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
                         <span style="font-size: 22px">pilih layanan</span>
                         <div class="row text-white">
