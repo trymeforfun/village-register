@@ -90,7 +90,7 @@
                                                                 <input type="hidden" name="user_id"
                                                                     value="{{ $service->user->id }}">
                                                                 <input type="hidden" name="id"
-                                                                    value="{{ $service->id }}">
+                                                                    value="{{ $service->layanan_id }}">
                                                                 <input type="hidden" name="layanan"
                                                                     value="{{ $service->layanan }}">
                                                                 <button

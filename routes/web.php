@@ -28,10 +28,7 @@ Route::get('/', function () {
 Route::get('/dashboard', function (Request $request) {
     
     $users = Services::with(['user'])->whereHas('user', function ($query) {
-        $query->whereHas('roles', function ($q) 
-        {
-            $q->where('name', 'user');
-        });
+        $query->whereHas('roles');
     })->where('layanan', 'LIKE', '%'.$request->layanan.'%')
         ->get();
     return view('dashboard', compact('users'));

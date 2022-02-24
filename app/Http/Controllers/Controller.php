@@ -152,7 +152,8 @@ class Controller extends BaseController
             }
             // dd($params);
             // return $layanan;
-            DB::table($layanan)->insert($params);
+            $layanan = DB::table($layanan)->insertGetId($params);
+            $params['layanan_id'] = $layanan;
             Services::create($params);
             return redirect(route('welcome'))->with('success', 'data berhasil dikirim');
         } catch (\Exception $ex) {

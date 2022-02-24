@@ -30,7 +30,7 @@ class MainController extends Controller
      }
      public function storeSuratIzinUsaha(Request $request)
      {
-          return $this->storeData($request, 'surat_izin_usaha');
+          return $this->storeData($request, 'surat_keterangan_usaha');
      }
      public function storeSuratKematian(Request $request)
      {
@@ -38,8 +38,9 @@ class MainController extends Controller
      }
 
      public function detail(Request $request)
-     {
-         $serv =  str_replace(' ', '_', $request->layanan);
+     { 
+          $serv =  str_replace(' ', '_', $request->layanan);
+          // return $request;
           $data = DB::table($serv)->where('id', $request->id)->where('user_id', $request->user_id)->first();
           $user = User::findOrFail($request->user_id);
           return view('client.detail.template', compact('data', 'user'));
